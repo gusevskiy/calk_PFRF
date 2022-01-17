@@ -70,28 +70,31 @@ def result_number_2():
 def result_number_1_2():
     num_1 = number_1.get()
     num_2 = number_2.get()
-    if num_1 == '':
-        num_2 = round((float(number_2.get().replace(',', '.'))), 2)
-        res_1_2 = num_2
-        result_1_2.config(text = (res_1_2))
-        res_02 = res_1_2
-        res_02 = round((res_02 * 0.02), 2)
-        result_02.config(text = (res_02))
-    elif num_2 == '':
-        num_1 = round((float(number_1.get().replace(',', '.'))), 2)
-        res_1_2 = num_1
-        result_1_2.config(text = (res_1_2))
-        res_02 = res_1_2
-        res_02 = round((res_02 * 0.02), 2)
-        result_02.config(text = (res_02))
-    else:
-        num_1 = round((float(number_1.get().replace(',', '.'))), 2)
-        num_2 = round((float(number_2.get().replace(',', '.'))), 2)
-        res_1_2 = num_1 + num_2
-        result_1_2.config(text = (res_1_2))
-        res_02 = res_1_2
-        res_02 = round((res_02 * 0.02), 2)
-        result_02.config(text = (res_02))
+    try:
+        if num_1 == '':
+            num_2 = round((float(number_2.get().replace(',', '.'))), 2)
+            res_1_2 = num_2
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
+        elif num_2 == '':
+            num_1 = round((float(number_1.get().replace(',', '.'))), 2)
+            res_1_2 = num_1
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
+        else:
+            num_1 = round((float(number_1.get().replace(',', '.'))), 2)
+            num_2 = round((float(number_2.get().replace(',', '.'))), 2)
+            res_1_2 = num_1 + num_2
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
+    except:
+        return None
        
 def perform():
     result_number_1()
