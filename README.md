@@ -1,0 +1,2 @@
+# code
+quick calculation
