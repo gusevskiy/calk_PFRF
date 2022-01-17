@@ -11,9 +11,9 @@ root.geometry('200x220+100+100')
 root.resizable(False, False) #блокирует изменение размеров окна
 #root.iconbitmap('ico_calc_PFRF.ico') #если нужна иконка
 
-number_1 = Entry(root, width = 12) # Entry ввести одну строку текста
+number_1 = Entry(root, width = 18) # Entry ввести одну строку текста
 number_1.grid(column = 1, row = 0, columnspan=2, sticky = W)
-number_2 = Entry(root, width = 12) # Entry ввести одну строку текста
+number_2 = Entry(root, width = 18) # Entry ввести одну строку текста
 number_2.grid(column = 1, row = 3, columnspan=2, sticky = W)
 
 
@@ -43,7 +43,6 @@ result_02 = Label(root, text = [], font = ('Arial', 9, 'bold'))
 result_02.grid(column = 1, row = 8)
 
 def result_number_1():
-    res10 = number_1.get()
     try:
         res10 = float(number_1.get().replace(',', '.'))
         res10 = round((res10 * 0.1), 2)
@@ -55,7 +54,6 @@ def result_number_1():
         return None
     
 def result_number_2():
-    res22 = number_2.get()
     try:
         res22 = float(number_2.get().replace(',', '.'))
         res22 = round((res22 * 0.22), 2)
@@ -73,13 +71,28 @@ def result_number_1_2():
     num_1 = number_1.get()
     num_2 = number_2.get()
     try:
-        num_1 = round((float(number_1.get().replace(',', '.'))), 2)
-        num_2 = round((float(number_2.get().replace(',', '.'))), 2)
-        res_1_2 = num_1 + num_2
-        result_1_2.config(text = (res_1_2))
-        res_02 = res_1_2
-        res_02 = round((res_02 * 0.02), 2)
-        result_02.config(text = (res_02))
+        if num_1 == '':
+            num_2 = round((float(number_2.get().replace(',', '.'))), 2)
+            res_1_2 = num_2
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
+        elif num_2 == '':
+            num_1 = round((float(number_1.get().replace(',', '.'))), 2)
+            res_1_2 = num_1
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
+        else:
+            num_1 = round((float(number_1.get().replace(',', '.'))), 2)
+            num_2 = round((float(number_2.get().replace(',', '.'))), 2)
+            res_1_2 = num_1 + num_2
+            result_1_2.config(text = (res_1_2))
+            res_02 = res_1_2
+            res_02 = round((res_02 * 0.02), 2)
+            result_02.config(text = (res_02))
     except:
         return None
        
