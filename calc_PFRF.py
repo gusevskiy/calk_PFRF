@@ -88,7 +88,7 @@ def result_number_1_2():
         else:
             num_1 = round((float(number_1.get().replace(',', '.'))), 2)
             num_2 = round((float(number_2.get().replace(',', '.'))), 2)
-            res_1_2 = num_1 + num_2
+            res_1_2 = round((num_1 + num_2), 2)
             result_1_2.config(text = (res_1_2))
             res_02 = res_1_2
             res_02 = round((res_02 * 0.02), 2)
