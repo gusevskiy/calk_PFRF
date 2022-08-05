@@ -46,10 +46,10 @@ def result_number_1():
     try:
         res10 = float(number_1.get().replace(',', '.'))
         res10 = round((res10 * 0.1), 2)
-        result_10.config(text=(res10))
+        result_10.config(text=(f"{res10:,}"))
         res5 = float(number_1.get().replace(',', '.'))
         res5 = round((res5 * 0.05), 2)
-        result_5.config(text=(res5))
+        result_5.config(text=(f"{res5:,}"))
     except:
         return None
 
@@ -59,13 +59,13 @@ def result_number_2():
     try:
         res22 = float(number_2.get().replace(',', '.'))
         res22 = round((res22 * 0.22), 2)
-        result_22.config(text=(res22))
+        result_22.config(text=(f"{res22:,}"))
         res05 = float(number_2.get().replace(',', '.'))
         res05 = round((res05 * 0.051), 2)
-        result_51.config(text=(res05))
+        result_51.config(text=(f"{res05:,}"))
         res29 = float(number_2.get().replace(',', '.'))
         res29 = round((res29 * 0.029), 2)
-        result_29.config(text=(res29))
+        result_29.config(text=(f"{res29:,}"))
     except:
         return None
 
@@ -77,25 +77,25 @@ def result_number_1_2():
         if num_1 == '':
             num_2 = round((float(number_2.get().replace(',', '.'))), 2)
             res_1_2 = num_2
-            result_1_2.config(text=(res_1_2))
+            result_1_2.config(text=(f"{res_1_2:,}"))
             res_02 = res_1_2
             res_02 = round((res_02 * 0.02), 2)
-            result_02.config(text=(res_02))
+            result_02.config(text=(f"{res_02:,}"))
         elif num_2 == '':
             num_1 = round((float(number_1.get().replace(',', '.'))), 2)
             res_1_2 = num_1
-            result_1_2.config(text=(res_1_2))
+            result_1_2.config(text=(f"{res_1_2:,}"))
             res_02 = res_1_2
             res_02 = round((res_02 * 0.02), 2)
-            result_02.config(text=(res_02))
+            result_02.config(text=(f"{res_02:,}"))
         else:
             num_1 = round((float(number_1.get().replace(',', '.'))), 2)
             num_2 = round((float(number_2.get().replace(',', '.'))), 2)
             res_1_2 = num_1 + num_2
-            result_1_2.config(text=(res_1_2))
+            result_1_2.config(text=(f"{res_1_2:,}"))
             res_02 = res_1_2
             res_02 = round((res_02 * 0.02), 2)
-            result_02.config(text=(res_02))
+            result_02.config(text=(f"{res_02:,}"))
     except:
         return None
 
