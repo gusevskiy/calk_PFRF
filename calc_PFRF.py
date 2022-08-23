@@ -6,7 +6,7 @@ from tkinter import *
 
 root = Tk()
 root.title('Умножение на %')
-root.geometry('300x220+100+100')
+root.geometry('200x220+100+100')
 root.resizable(False, False)  # блокирует изменение размеров окна
 # root.iconbitmap('ico_calc_PFRF.ico') #если нужна иконка
 
@@ -15,15 +15,15 @@ number_1.grid(column=1, row=0, columnspan=2, sticky=W)
 number_2 = Entry(root, width=17)  # Entry ввести одну строку текста
 number_2.grid(column=1, row=3, columnspan=2, sticky=W)
 
-Label(root, text='Введи число A').grid(column=0, row=0)
-Label(root, text='A x 10 % =').grid(column=0, row=1)
-Label(root, text='A x 5 % =').grid(column=0, row=2)
-Label(root, text='Введи число Б').grid(column=0, row=3)
-Label(root, text='Б x 22 % =').grid(column=0, row=4)
-Label(root, text='Б x 5.1 % =').grid(column=0, row=5)
-Label(root, text='Б x 2.9 % =').grid(column=0, row=6)
-Label(root, text='Сумма А + Б').grid(column=0, row=7)
-Label(root, text='(А+Б) x 0,2 % =').grid(column=0, row=8)
+Label(root, text='Число A').grid(column=0, row=0)
+Label(root, text='A x 10% =').grid(column=0, row=1)
+Label(root, text='A x 5% =').grid(column=0, row=2)
+Label(root, text='Число Б').grid(column=0, row=3)
+Label(root, text='Б x 22% =').grid(column=0, row=4)
+Label(root, text='Б x 5.1% =').grid(column=0, row=5)
+Label(root, text='Б x 2.9% =').grid(column=0, row=6)
+Label(root, text='Сумма А+Б').grid(column=0, row=7)
+Label(root, text='(А+Б) x 0,2% =').grid(column=0, row=8)
 
 result_10 = Label(root, text='', font=('Arial', 9, 'bold'))
 result_10.grid(column=1, row=1)
@@ -75,17 +75,22 @@ def result_number_1_2():
     num_2 = number_2.get()
     try:
         if num_1 == '':
+            result_10.config(text='')
+            result_5.config(text='')
             num_2 = round((float(number_2.get().replace(',', '.'))), 2)
             res_1_2 = num_2
             result_1_2.config(text=f"{res_1_2:,}".replace(',', ' '))
-            res_02 = round((res_02 * 0.02), 2)
+            res_02 = round((num_2 * 0.002), 2)
             result_02.config(text=f"{res_02:,}".replace(',', ' '))
         elif num_2 == '':
+            result_22.config(text='')
+            result_51.config(text='')
+            result_29.config(text='')
             num_1 = round((float(number_1.get().replace(',', '.'))), 2)
             res_1_2 = num_1
             result_1_2.config(text=f"{res_1_2:,}".replace(',', ' '))
             res_02 = res_1_2
-            res_02 = round((res_02 * 0.02), 2)
+            res_02 = round((res_02 * 0.002), 2)
             result_02.config(text=f"{res_02:,}".replace(',', ' '))
         else:
             num_1 = round((float(number_1.get().replace(',', '.'))), 2)
@@ -93,7 +98,7 @@ def result_number_1_2():
             res_1_2 = round((num_1 + num_2), 2)
             result_1_2.config(text=f"{res_1_2:,}".replace(',', ' '))
             res_02 = res_1_2
-            res_02 = round((res_02 * 0.02), 2)
+            res_02 = round((res_02 * 0.002), 2)
             result_02.config(text=f"{res_02:,}".replace(',', ' '))
     except:
         return None
@@ -109,6 +114,7 @@ def performE(self):
     perform()
 
 
+
 def delet():
     number_1.delete(0, END)
     number_2.delete(0, END)
@@ -116,7 +122,6 @@ def delet():
     result_5.config(text='')
     result_22.config(text='')
     result_51.config(text='')
-    result_10.config(text='')
     result_29.config(text='')
     result_1_2.config(text='')
     result_02.config(text='')
